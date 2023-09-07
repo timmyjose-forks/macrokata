@@ -6,6 +6,19 @@ fn print_result(num: i32) {
 
 // TODO: create `num!()` macro.
 
+macro_rules! num {
+    (one) => {
+        1
+    };
+
+    (two) => {
+        2
+    };
+
+    (three) => {
+        3
+    };
+}
 ////////// DO NOT CHANGE BELOW HERE /////////
 
 fn main() {

@@ -6,6 +6,15 @@ fn print_result(num: i32) {
 
 // TODO: create `math!()` macro.
 
+macro_rules! math {
+    ($x:literal plus $y:literal) => {
+        $x + $y
+    };
+
+    (square $x:literal) => {
+        $x * $x
+    };
+}
 ////////// DO NOT CHANGE BELOW HERE /////////
 
 fn main() {
