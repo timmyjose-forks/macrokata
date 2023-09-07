@@ -35,6 +35,12 @@ macro_rules! digit {
 
 // TODO: create `number!()` macro.
 
+macro_rules! number {
+    ($($tok:tt)*) => {
+        concat!($(digit!($tok)),*)
+    };
+}
+
 ////////// DO NOT CHANGE BELOW HERE /////////
 
 fn main() {

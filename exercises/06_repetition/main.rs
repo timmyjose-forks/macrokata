@@ -6,6 +6,12 @@ fn print_success() {
 
 // TODO: create `if_any!()` macro.
 
+macro_rules! if_any {
+    ($($arg:expr),*;$code:block) => {
+        if $($arg)||* $code
+    };
+}
+
 ////////// DO NOT CHANGE BELOW HERE /////////
 
 fn main() {

@@ -24,23 +24,26 @@ impl NumberType {
 
 // Sum together at least two expressions.
 macro_rules! sum {
-    ($($expr:expr),+ , $lastexpr:expr) => {
-        $($expr + )+ $lastexpr
-    }
+    ($first:expr, $($next:expr),+) => {
+        $first $( +  $next )+
+    };
 }
 
 macro_rules! get_number_type {
-    ( $e:expr ) => {
-        NumberType::UnknownBecauseExpr($e)
+    ( -$negative:literal ) => {
+        NumberType::NegativeNumber(-$negative)
     };
-    ( $block:block ) => {
-        NumberType::UnknownBecauseBlock($block)
-    };
+
     ( $positive:literal ) => {
         NumberType::PositiveNumber($positive)
     };
-    ( -$negative:literal ) => {
-        NumberType::NegativeNumber(-$negative)
+
+    ( $block:block ) => {
+        NumberType::UnknownBecauseBlock($block)
+    };
+
+    ( $e:expr ) => {
+        NumberType::UnknownBecauseExpr($e)
     };
 }
 
